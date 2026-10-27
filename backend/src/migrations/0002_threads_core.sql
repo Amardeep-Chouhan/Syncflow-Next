@@ -27,3 +27,14 @@ CREATE TABLE IF NOT EXISTS threads (
 );
 
 
+CREATE INDEX IF NOT EXISTS idx_threads_category_created_at
+   ON threads (category_id, created_at DESC);
+
+
+INSERT INTO categories (slug, name, description)
+VALUES 
+  ('general',  'General',  'Anything dev-related, off-topic but friendly.'),
+  ('q-and-a',  'Q&A',      'Ask and answer coding and career questions.'),
+  ('showcase', 'Showcase', 'Share what you are building or learning.'),
+  ('help',     'Help',     'Stuck on something? Ask for help here.')
+ON CONFLICT (slug) DO NOTHING;
