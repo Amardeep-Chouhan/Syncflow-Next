@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS replies (
 );
 
 
-
+CREATE INDEX IF NOT EXISTS idx_replies_thread_created_at
+  ON replies (thread_id, created_at ASC);
 
 
 
