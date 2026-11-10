@@ -31,3 +31,5 @@ CREATE TABLE IF NOT EXISTS thread_reactions (
 
 );
 
+CREATE INDEX IF NOT EXISTS idx_thread_reactions_thread
+   ON thread_reactions (thread_id);
