@@ -13,3 +13,6 @@ CREATE TABLE IF NOT EXISTS notifications (
 
     read_at TIMESTAMPTZ
 );
+
+CREATE INDEX IF NOT EXISTS idx_notifications_user_read
+   ON notifications (user_id, read_at);
