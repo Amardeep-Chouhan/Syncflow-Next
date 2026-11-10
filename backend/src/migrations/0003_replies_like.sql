@@ -1,0 +1,19 @@
+
+CREATE TABLE IF NOT EXISTS replies (
+    id BIGSERIAL PRIMARY KEY,
+
+    thread_id BIGINT NOT NULL REFERENCES threads(id) ON DELETE CASCADE,
+
+    author_user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+
+    body TEXT NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+
+
+
+
+
