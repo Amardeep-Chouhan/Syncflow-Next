@@ -12,4 +12,7 @@ export type NotificationRow = {
 export type Notification = {
   id: number;
   type: string;
+  threadId: number;
+  createdAt: string;
+  readAt: string | null;
 
