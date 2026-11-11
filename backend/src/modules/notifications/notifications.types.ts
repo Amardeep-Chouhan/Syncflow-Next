@@ -19,4 +19,9 @@ export type Notification = {
     displayName: string | null;
     handle: string | null;
   };
+  thread: {
+    title: string;
+  };
+};
 
+export function mapNotificationsRow(row: NotificationRow): Notification {
