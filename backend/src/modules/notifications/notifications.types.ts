@@ -9,4 +9,7 @@ export type NotificationRow = {
   thread_title: string | null;
 };
 
+export type Notification = {
+  id: number;
+  type: string;
 
