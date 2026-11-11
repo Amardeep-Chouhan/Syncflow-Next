@@ -4,6 +4,9 @@ export type NotificationRow = {
   thread_id: number;
   created_at: Date;
   read_at: Date | null;
-
+  actor_display_name: string | null;
+  actor_handle: string | null;
+  thread_title: string | null;
+};
 
 
