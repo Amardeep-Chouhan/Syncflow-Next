@@ -25,3 +25,9 @@ export type Notification = {
 };
 
 export function mapNotificationsRow(row: NotificationRow): Notification {
+  return {
+    id: row.id,
+    type: row.type,
+    threadId: row.thread_id,
+    createdAt: row.created_at.toISOString(),
+    readAt: row.read_at ? row.read_at.toISOString() : null,
