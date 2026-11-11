@@ -15,4 +15,8 @@ export type Notification = {
   threadId: number;
   createdAt: string;
   readAt: string | null;
+  actor: {
+    displayName: string | null;
+    handle: string | null;
+  };
 
