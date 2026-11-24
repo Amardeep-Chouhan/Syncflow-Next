@@ -26,4 +26,22 @@ async function fetchClerkProfile(clerkUserId: string) {
   };
 }
 
+export async function getUserFromClerk(
+  clerkUserId: string
+): Promise<UserProfile> {
+  const { fullName, email, avatarUrl } = await fetchClerkProfile(clerkUserId);
+
+  const user = await upsertUserFromClerkProfile({
+    clerkUserId,
+    displayName: fullName,
+    avatarUrl,
+  });
+
+  return {
+    user,
+    clerkEmail: email,
+    clerkFullName: fullName,
+  };
+}
+
 
