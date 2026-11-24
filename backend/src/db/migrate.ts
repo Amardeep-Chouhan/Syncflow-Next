@@ -13,4 +13,21 @@ async function runMigrations() {
     .filter((file) => file.endsWith(".sql"))
     .sort();
 
-  
+  if (files.length === 0) {
+    logger.info("no migrations found!");
+
+    return;
+  }
+
+  for (const file of files) {
+    const fullPath = path.join(migrationsDir, file);
+    const sql = fs.readFileSync(fullPath, "utf8");
+
+    logger.info(`Running migrations`);
+
+    await query(sql);
+
+    logger.info(`Finished migration`);
+  }
+}
+
