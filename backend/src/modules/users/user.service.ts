@@ -1,3 +1,4 @@
+import { UserProfile } from "./user.types.js";
 import { clerkClient } from "../../config/clerk.js";
 
 
@@ -10,6 +11,19 @@ async function fetchClerkProfile(clerkUserId: string) {
 
   const fullName = getFullName.trim().length > 0 ? getFullName : null;
 
+  const primaryEmail =
+    clerkUser.emailAddresses.find(
+      (email) => email.id === clerkUser.primaryEmailAddressId
+    ) ?? clerkUser.emailAddresses[0];
 
+  const email = primaryEmail?.emailAddress ?? null;
+  const avatarUrl = clerkUser?.imageUrl || null;
+
+  return {
+    fullName,
+    email,
+    avatarUrl,
+  };
+}
 
 
