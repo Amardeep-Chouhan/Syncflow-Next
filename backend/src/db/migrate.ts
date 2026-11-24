@@ -31,3 +31,12 @@ async function runMigrations() {
   }
 }
 
+runMigrations()
+  .then(() => {
+    logger.info("All migrations run successfully");
+    process.exit(0);
+  })
+  .catch((err) => {
+    logger.error(`Migration failed ${(err as Error).message}`);
+    process.exit(1);
+  });
