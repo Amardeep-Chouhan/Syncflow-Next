@@ -1,6 +1,9 @@
 import { UserProfile } from "./user.types.js";
 import { clerkClient } from "../../config/clerk.js";
-
+import {
+  repoUpdateUserProfile,
+  upsertUserFromClerkProfile,
+} from "./user.repository.js";
 
 async function fetchClerkProfile(clerkUserId: string) {
   const clerkUser = await clerkClient.users.getUser(clerkUserId);
