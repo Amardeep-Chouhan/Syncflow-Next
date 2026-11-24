@@ -53,4 +53,19 @@ export async function updateUserProfile(params: {
 }): Promise<UserProfile> {
   const { clerkUserId, displayName, handle, bio, avatarUrl } = params;
 
+  const updatedUser = await repoUpdateUserProfile({
+    clerkUserId,
+    displayName,
+    bio,
+    handle,
+    avatarUrl,
+  });
 
+  const { fullName, email } = await fetchClerkProfile(clerkUserId);
+
+  return {
+    user: updatedUser,
+    clerkEmail: email,
+    clerkFullName: fullName,
+  };
+}
