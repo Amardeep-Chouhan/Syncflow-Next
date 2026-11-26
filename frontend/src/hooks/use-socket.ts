@@ -14,6 +14,9 @@ export function useSocket(): UseSocketResult {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [connected, setConnected] = useState(false);
 
+  useEffect(() => {
+    if (!isLoaded) return;
+
 
 
 
