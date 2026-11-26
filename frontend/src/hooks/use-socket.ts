@@ -53,6 +53,9 @@ export function useSocket(): UseSocketResult {
       setConnected(false);
     };
 
-   
+    const handleConnectError = (err: any) => {
+      console.error(err);
+    };
+
     
    
