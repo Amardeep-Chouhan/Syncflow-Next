@@ -34,7 +34,11 @@ export function useSocket(): UseSocketResult {
 
     console.log(`[Socket], ${baseUrl}, ${userId}`);
 
-    
+    const socketInstance: Socket = io(baseUrl, {
+      auth: { userId }, // backend is going to read the userId
+      withCredentials: true,
+      transports: ["websocket"],
+    });
 
    
 
