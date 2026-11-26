@@ -42,7 +42,11 @@ export function useSocket(): UseSocketResult {
 
     setSocket(socketInstance);
 
+    const handleConnect = () => {
+      console.log(`[Socket], ${socketInstance.id}`);
 
+      setConnected(true);
+    };
 
   
    
