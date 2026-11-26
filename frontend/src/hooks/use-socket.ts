@@ -48,7 +48,11 @@ export function useSocket(): UseSocketResult {
       setConnected(true);
     };
 
-  
+    const handleDisConnect = (reason: any) => {
+      console.log(`[Socket], ${socketInstance.id}, ${reason}`);
+      setConnected(false);
+    };
+
    
     
    
