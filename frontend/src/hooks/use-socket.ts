@@ -57,5 +57,8 @@ export function useSocket(): UseSocketResult {
       console.error(err);
     };
 
-    
+    socketInstance.on("connect", handleConnect);
+    socketInstance.on("disconnect", handleDisConnect);
+    socketInstance.on("connect_error", handleConnectError);
+
    
