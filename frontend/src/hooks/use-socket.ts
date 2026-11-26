@@ -61,4 +61,15 @@ export function useSocket(): UseSocketResult {
     socketInstance.on("disconnect", handleDisConnect);
     socketInstance.on("connect_error", handleConnectError);
 
-   
+    return () => {
+      socketInstance.off("connect", handleConnect);
+      socketInstance.off("disconnect", handleDisConnect);
+      socketInstance.off("connect_error", handleConnectError);
+      socketInstance.disconnect();
+      setConnected(false);
+      setSocket(null);
+    };
+  }, [userId, isLoaded]);
+
+  return { socket, connected };
+}
