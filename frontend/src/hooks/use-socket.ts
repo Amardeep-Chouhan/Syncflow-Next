@@ -30,6 +30,9 @@ export function useSocket(): UseSocketResult {
       return;
     }
 
+    const baseUrl = "http://localhost:5000";
+
+    console.log(`[Socket], ${baseUrl}, ${userId}`);
 
     
 
