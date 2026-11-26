@@ -40,7 +40,8 @@ export function useSocket(): UseSocketResult {
       transports: ["websocket"],
     });
 
-   
+    setSocket(socketInstance);
+
 
 
   
