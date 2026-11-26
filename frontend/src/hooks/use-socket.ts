@@ -9,6 +9,11 @@ type UseSocketResult = {
   connected: boolean;
 };
 
+export function useSocket(): UseSocketResult {
+  const { userId, isLoaded } = useAuth();
+  const [socket, setSocket] = useState<Socket | null>(null);
+  const [connected, setConnected] = useState(false);
+
 
 
 
