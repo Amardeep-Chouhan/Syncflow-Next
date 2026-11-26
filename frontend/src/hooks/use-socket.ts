@@ -17,7 +17,18 @@ export function useSocket(): UseSocketResult {
   useEffect(() => {
     if (!isLoaded) return;
 
+    if (!userId) {
+      setConnected(false);
+      setSocket((prev) => {
+        if (prev) {
+          prev.disconnect();
+        }
 
+        return null;
+      });
+
+      return;
+    }
 
 
     
